@@ -1,9 +1,9 @@
-**Build Libtorrent Image**
+**Build Tribler Image**
 ```
 docker build -t triblercore/tribler:latest .
 ```
 
-**Push Libtorrent image**
+**Push Tribler image**
 ```
 docker push triblercore/tribler:latest
 ```
