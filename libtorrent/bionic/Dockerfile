@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM triblercore/python3:18.04
 
 RUN apt update && apt upgrade -y
 
@@ -16,7 +16,8 @@ RUN mkdir libtorrent && cd libtorrent \
     && cd /libtorrent/libtorrent \
     && ./autotool.sh \
     && ./configure --enable-python-binding --with-libiconv \
-    && make -j$(nproc) \
-    && checkinstall -D -y \
-    && ldconfig \
-    && rm -rf /libtorrent
+    && make -j$(nproc)
+
+RUN cd /libtorrent/libtorrent && make install && ldconfig
+
+RUN cd /libtorrent/libtorrent/bindings/python && python3 setup.py build && python3 setup.py install

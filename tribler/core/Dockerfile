@@ -17,6 +17,7 @@ RUN pip3 install -r /tribler/tribler/src/requirements.txt && pip3 install -r /tr
 EXPOSE 7759
 EXPOSE 8085
 
+RUN echo "PYTHONPATH=$PYTHONPATH:
 # Define the entry point to run
 COPY ./run.sh /tribler/tribler/
 RUN chmod +x /tribler/tribler/run.sh

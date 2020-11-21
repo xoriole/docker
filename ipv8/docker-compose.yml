@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  tracker1:
+    image: triblercore/ipv8:tracker
+    command: "--listen_port=6527"
+    restart: always
+    ports:
+      - "127.0.0.1:6527:6527"
+
+  tracker2:
+    image: triblercore/ipv8:tracker
+    command: "--listen_port=6528"
+    restart: always
+    ports:
+      - "127.0.0.1:6528:6528"
